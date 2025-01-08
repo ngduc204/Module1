@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+  document.write("Bài 1 ")
+  diemVatLy = prompt("Nhập vào điểm Vật lý")
+  diemHoaHoc = prompt("Nhập vào điểm Hóa học")
+  diemSinhHoc = prompt("Nhập vào điểm Sinh học")
+  let vatLy = parseInt(diemVatLy)
+  let hoaHoc = parseInt(diemHoaHoc)
+  let sinhHoc = parseInt(diemSinhHoc)
+  var dtb = (vatLy + hoaHoc + sinhHoc)
+  document.write("Điểm trung bình: "+dtb)
+  document.write("<br>")
+</script>
+<body>
+<p>Bài 2</p>
+<input type="number" placeholder="Độ C (Celsius)" id="input">
+<button onclick="doiDoCsangDoF()">Nhập</button>
+<p id="output"></p>
+<script>
+  function doiDoCsangDoF() {
+    let doC = document.getElementById("input").value;
+    let doF = (9 * doC / 5) + 32;
+    document.getElementById("output").innerHTML = doF;
+  }
+</script>
+<script>
+  document.write("<br>")
+  document.write("Bài 3")
+  document.write("<br>")
+  nhapBanKinh = prompt("Nhập vào BÁN KÍNH HÌNH TRÒN ");
+  let banKinh = parseInt(nhapBanKinh);
+  let pi = 3.14;
+  let dienTich = banKinh*banKinh*pi;
+  let chuVi = (banKinh*2)*pi;
+  document.write("Diện tích hình tròn là: "+dienTich);
+  document.write("Chu vi hình tròn là: "+chuVi);
+</script>
+</body>
+</html>

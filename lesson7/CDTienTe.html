@@ -14,15 +14,15 @@
         </tr>
         <tr>
             <td><input type="number" id="Amount"></td>
-            <td><select id="From">
+            <td><label for="From"></label><select id="From">
                 <option>USD</option>
                 <option>Viet Nam</option>
             </select></td>
-            <td><select id="To">
+            <td><label for="To"></label><select id="To">
                 <option>Viet Nam</option>
                 <option>USD</option>
             </select></td>
-            <td><button style="background-color: fuchsia" onclick="ChangeMoney()">Convert</button></td>
+            <td><button style="background-color: fuchsia" onclick="ChangeMoney()" type="button">Convert</button></td>
         </tr>
         <tr>
             <td><p id="Result">Result </p></td>
@@ -31,30 +31,23 @@
 </form>
 </body>
 <script>
-    // nhapUSD = prompt("Nhập số tiền muốn chuyển đổi")
-    // let usd = parseInt(nhapUSD);
-    // let vnd = 25.383;
-    // let vnd_usd = usd * vnd;
-    // document.write("---1$ = 25.383vnđ---");
-    // document.write("<br>");
-    // document.write(nhapUSD+"$ = "+vnd_usd+"vnđ");
     function ChangeMoney() {
         let Amount = document.getElementById("Amount").value;
         let from = document.getElementById("From").value;
         let to = document.getElementById("To").value;
-        let vnd = 25.383;
-        let usd = 0.03940;
+        let vnd = 25380;
+        let usd = 3940;
         let Result;
-        if (from == "USD" && to == "Viet Nam"){
+        if (from === "USD" && to === "Viet Nam"){
             Result = Amount * vnd;
-        } else if (from == "Viet Nam" && to == "USD"){
-            Result = Amount * usd;
-        } else if (from == "Viet Nam"){
+        } else if (from === "Viet Nam" && to === "USD"){
+            Result = Amount / usd;
+        } else if (from === "Viet Nam"){
             Result = Amount + "vnd";
         } else{
             Result = Amount + "$";
         }
-        document.getElementById("Result").innerHTML = Result;
+        document.getElementById("Result").innerHTML = Result.toFixed(2);
     }
 </script>
 </html>
