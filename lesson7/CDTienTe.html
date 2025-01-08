@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="get">
+    <table>
+        <tr>
+            <th><label for="Amount">Amount</label></th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+        </tr>
+        <tr>
+            <td><input type="number" id="Amount"></td>
+            <td><select id="From">
+                <option>USD</option>
+                <option>Viet Nam</option>
+            </select></td>
+            <td><select id="To">
+                <option>Viet Nam</option>
+                <option>USD</option>
+            </select></td>
+            <td><button style="background-color: fuchsia" onclick="ChangeMoney()">Convert</button></td>
+        </tr>
+        <tr>
+            <td><p id="Result">Result </p></td>
+        </tr>
+    </table>
+</form>
+</body>
+<script>
+    // nhapUSD = prompt("Nhập số tiền muốn chuyển đổi")
+    // let usd = parseInt(nhapUSD);
+    // let vnd = 25.383;
+    // let vnd_usd = usd * vnd;
+    // document.write("---1$ = 25.383vnđ---");
+    // document.write("<br>");
+    // document.write(nhapUSD+"$ = "+vnd_usd+"vnđ");
+    function ChangeMoney() {
+        let Amount = document.getElementById("Amount").value;
+        let from = document.getElementById("From").value;
+        let to = document.getElementById("To").value;
+        let vnd = 25.383;
+        let usd = 0.03940;
+        let Result;
+        if (from == "USD" && to == "Viet Nam"){
+            Result = Amount * vnd;
+        } else if (from == "Viet Nam" && to == "USD"){
+            Result = Amount * usd;
+        } else if (from == "Viet Nam"){
+            Result = Amount + "vnd";
+        } else{
+            Result = Amount + "$";
+        }
+        document.getElementById("Result").innerHTML = Result;
+    }
+</script>
+</html>
