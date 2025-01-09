@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 style="text-align: left">Caculator</h1>
+<table>
+  <tr>
+    <td colspan="2" id="num1"><input type="number"></td>
+    <td colspan="2" id="num2"><input type="number"></td>
+  </tr>
+  <tr>
+    <td>
+      <button id="addition" type="button" onclick="addition()">Addition(+)</button>
+    </td>
+    <td>
+      <button id="subtraction" type="button" onclick="subtraction()">Subtraction(-)</button>
+    </td>
+    <td>
+      <button id="multiplication" type="button" onclick="multiplication()">Multiplication(x)</button>
+    </td>
+    <td>
+      <button id="division" type="button" onclick="division()">Division(/)</button>
+    </td>
+    <tr>
+      <td>
+        <p id="result">Result: </p>
+      </td>
+    </tr>
+  </tr>
+</table>
+</body>
+<script>
+  function addition() {
+    var num1 = document.getElementById("num1").value;
+    var num2 = document.getElementById("num2").value;
+    var result = num1 + num2;
+    document.getElementById("result").innerHTML = result;
+  }
+  function subtraction() {
+    var num1 = document.getElementById("num1").value;
+    var num2 = document.getElementById("num2").value;
+    var result = num1 - num2;
+    document.getElementById("result").innerHTML = result;
+  }
+  function multiplication() {
+    var num1 = document.getElementById("num1").value;
+    var num2 = document.getElementById("num2").value;
+    var result = num1 * num2;
+    document.getElementById("result").innerHTML = result;
+  }
+  function division() {
+    var num1 = document.getElementById("num1").value;
+    var num2 = document.getElementById("num2").value;
+    var result = num1 / num2;
+    document.getElementById("result").innerHTML = result;
+  }
+</script>
+</html>

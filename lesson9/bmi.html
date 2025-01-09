@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h5>Tính chỉ số cân nặng của cơ thể</h5>
+<label for="weight">Weight(Cân nặng_kg)<input id="weight" type="number"></label>
+<label for="height">Height(Chiều cao_m)<input id="height" type="number"></label>
+<button id="result" type="button" onclick="tinhBMI()">Result: </button>
+</body>
+<script>
+  var weight = document.getElementById("weight").value;
+  var height = document.getElementById("height").value;
+  var bmi = weight / (height * height);
+  function tinhBMI() {
+    if (bmi < 18.5) {
+      document.getElementById("result").innerHTML = "Underweight(nhẹ cân)";
+
+    } else if (18.5 <= bmi < 25.0) {
+      document.getElementById("result").innerHTML = "Nomal(bình thường)";
+
+    } else if (25.0 <= bmi < 30.0) {
+      document.getElementById("result").innerHTML = "Overweight(thừa cân)";
+    } else if (30 <= bmi) {
+      document.getElementById("result").innerHTML = "Obese(béo phì)";
+
+    }
+  }
+</script>
+</html>
