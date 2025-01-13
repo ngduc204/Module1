@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        background-color: hotpink
+    }
+    h1{
+        position:absolute;
+        left:220px;
+        top:175px;
+    }
+    input{
+        position:absolute;
+        top:235px;
+    }
+</style>
+<body>
+<h1>Do you love me?</h1>
+<input type="button" value=" YES " onclick="yesClick()" style="left:285px;"/>
+<input type="button" id="btnNo" value="  NO  " onmouseover="noHover()" style="left:360px;"/>
+<img src="" alt="">
+<script type="text/javascript">
+    function yesClick() {
+        alert("Look, i knew it =))))");
+    }
+
+    function noHover() {
+        var x = Math.round(Math.random() * window.innerWidth);
+        var y = Math.round(Math.random() * window.innerHeight);
+        document.getElementById('btnNo').style.left = x + 'px';
+        document.getElementById('btnNo').style.top = y + 'px';
+    }
+</script>
+</body>
+</html>

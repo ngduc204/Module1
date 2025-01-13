@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num1 = parseInt(prompt("Nhập số thứ nhất"));
+    let num2 = parseInt(prompt("Nhập số thứ hai"));
+    let num3 = parseInt(prompt("Nhập số thứ ba"));
+    if (num1 > num2) {
+        if (num2 > num3) {
+            alert("Số thứ nhất [" + num1 + "] là số lớn nhất");
+        }
+    } else if (num2 > num3) {
+        if (num3 > num1) {
+            alert("Số thứ hai ["+num2+ "] là số lớn nhất")
+        }
+    } else {
+        alert("Số thứ ba ["+ num3+"] là số lớn nhất")
+    }
+</script>
+</body>
+</html>
