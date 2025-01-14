@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  temperature = parseInt(prompt("Nhập vào nhiệt độ"));
+  for (temperature = 0; temperature <= 1000; temperature++) {
+    document.write(temperature);
+    if (temperature < 20){
+      alert("Quá lạnh yêu cầu người tăng nhiệt trên 20 độ!");
+    } else if (temperature > 100){
+      alert("Quá nóng yêu cầu người giảm nhiệt dưới 100 độ!");
+    }
+  }
+</script>
+</body>
+</html>
