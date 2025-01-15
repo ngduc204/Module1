@@ -9,25 +9,23 @@
 <button onclick="doanSo()">Bắt đầu ngay</button>
 <script>
     function doanSo() {
-        let min = parseInt(prompt("Người chơi hãy nhập số Bé nhất trong khoảng muốn đoán"))
+        let min = parseInt(prompt("Người chơi hãy nhập số Bé nhất trong khoảng muốn đoán"));
         let max = parseInt(prompt("Người chơi hãy nhập số Lớn nhất trong khoảng muốn đoán"));
         let count;
-        let random;
-        let choose = parseInt(prompt("Mời bạn đoán số"));
-        random = Math.round(Math.random() * (max - min) + min);
+        let random = Math.round(Math.random() * (max - min) + min);
         console.log(random);
         for (count = 0; count < 3; count++) {
+            let choose = parseInt(prompt("Mời bạn đoán số"));
             if (choose === random) {
                 alert("---Bạn đã đoán đúng---");
                 break;
             } else if (choose < random) {
-                prompt("Số bạn nhập bé hơn!");
-
+                alert("Số bạn nhập bé hơn!");
             } else if (choose > random) {
-                prompt("Số bạn nhập lớn hơn!");
+                alert("Số bạn nhập lớn hơn!");
             }
         }
-        if (count === 2) {
+        if (count === 3){
             alert("Bạn đã hết lượt đoán. Số đúng là: " + random);
         }
     }

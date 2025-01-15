@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tính Lãi Ngân Hàng</h1>
+<form id="interestForm">
+    <label for="principal">Số tiền ban đầu (VNĐ):</label>
+    <input type="number" id="principal" required><br><br>
+
+    <label for="months">Số tháng cho vay:</label>
+    <input type="number" id="months" required><br><br>
+
+    <label for="interestRate">Lãi suất hàng tháng (%):</label>
+    <input type="number" id="interestRate" required><br><br>
+
+    <button type="submit">Tính</button>
+</form>
+<h2 id="result"></h2>
+<script>
+    document.getElementById('interestForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Lấy giá trị từ biểu mẫu
+        const principal = parseFloat(document.getElementById('principal').value);
+        const months = parseInt(document.getElementById('months').value);
+        const interestRate = parseFloat(document.getElementById('interestRate').value) / 100;
+
+        // Tính lãi mẹ đẻ, lãi con
+        let totalAmount = principal;
+        for (let i = 0; i < months; i++) {
+            totalAmount += totalAmount * interestRate; // Lãi mẹ đẻ, lãi con
+        }
+        // Hiển thị kết quả
+        document.getElementById('result').innerText = `Số tiền sau ${months} tháng là: ${totalAmount.toFixed(2)} VNĐ`;
+    });
+</script>
+</body>
+</html>
