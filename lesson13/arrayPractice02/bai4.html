@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function countWords(str) {
+        let words = str.trim().split(/\s+/);
+        return words.length > 0 && words[0] !== '' ? words.length : 0; // Kiểm tra nếu mảng không rỗng
+    }
+
+    let inputString = prompt("Nhập vào một chuỗi:");
+    let wordCount = countWords(inputString);
+    console.log(`Số từ trong chuỗi: ${wordCount}`);
+</script>
+</body>
+</html>

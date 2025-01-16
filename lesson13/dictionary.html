@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="string">Nhập từ: </label>
+<input type="text" name="" id="string">
+<button onclick="transcript()">Dịch</button>
+<p id="result"></p>
+<script>
+    function transcript() {
+        let arr_eng = ["banana", "apple", "orange", "pen", "pencil", "book"];//khai báo 1 mảng chứa các từ tiếng anh
+        let arr_vie = ["chuối", "táo", "cam", "bút", "bút chì", "sách"];//khai báo 1 mảng chứa các từ tiếng việt
+        let string = document.getElementById("string").value;//lấy giá trị từ bàn phím
+        let index_eng = 0;// khai báo 1 biến index = 0 để lấy vị trí phần tử trong mảng các từ tiếng anh
+        let result = "";//tạo biến result = "" để lấy 1 chuỗi trong mãng
+        for (let i = 0; i < arr_eng.length; i++) {//duyệt từ đầu đến cuối mảng chứa các từ tiếng anh
+            if (string === arr_eng[i]) {// đặt đk nếu từ người dùng nhập vào giống với 1 trong những từ trong mảng tiếng anh
+                index_eng = i; //gán biến index = vị trí của từ đó trong mảng tiếng anh
+                for (let j = 0; j < arr_vie.length; j++) {//duyệt từ đầu đến cuối mảng tiếng việt
+                    if (index_eng === j) { //đặt đk nếu vị trí của chuỗi trong mảng tiếng anh đó giống với vị trí của chuỗi trong mảng tiếng việt
+                        result = arr_vie[j]; // thì in ra kết quả là từ tiếng việt đó
+                    }
+                }
+            }
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</body>
+</html>

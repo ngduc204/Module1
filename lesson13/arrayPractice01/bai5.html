@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function countNegativeIntegers(inputString) {
+    let elements = inputString.split(/\s+/); // Tách bằng khoảng trắng
+    let count = 0;
+    for (let element of elements) {
+      let number = parseInt(element, 10);
+      if (!isNaN(number) && number < 0) {
+        count++;
+      }
+    }
+    return count;
+  }
+  let input = prompt("Nhập vào chuỗi các số (có thể có số âm):");
+  let negativeCount = countNegativeIntegers(input);
+  console.log(`Số lượng số nguyên âm trong chuỗi: ${negativeCount}`);
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function reverseArray(arr) {
+        let reversedArray = [];
+        for (let i = arr.length - 1; i >= 0; i--) {
+            reversedArray.push(arr[i]);
+        }
+        return reversedArray;
+    }
+    let input = prompt("Nhập vào các số nguyên cách nhau bởi dấu phẩy:");
+    let numbers = input.split(',').map(Number); // Chuyển đổi chuỗi thành mảng số nguyên
+    let reversedNumbers = reverseArray(numbers);
+    console.log(`Mảng số nguyên ban đầu: ${numbers}`);
+    console.log(`Mảng số nguyên sau khi đảo ngược: ${reversedNumbers}`);
+</script>
+</body>
+</html>

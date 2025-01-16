@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function isValueInArray(arr, value) {
+    return arr.includes(value);
+  }
+  let numbers = [];
+  for (let i = 0; i < 10; i++) {
+    let input = prompt(`Nhập vào số nguyên thứ ${i + 1}:`);
+    numbers.push(parseInt(input, 10)); // Chuyển đổi thành số nguyên và thêm vào mảng
+  }
+  let V = parseInt(prompt("Nhập vào số nguyên V: "), 10);
+  if (isValueInArray(numbers, V)) {
+    console.log(`${V} is in the array`);
+  } else {
+    console.log(`${V} is not in the array`);
+  }
+</script>
+</body>
+</html>

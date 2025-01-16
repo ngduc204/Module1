@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let charArray = ['a', '2', 'c', '4', 'd', '5', 'e', '7', '8', 'f'];
+  function countDigits(arr) {
+    let count = 0;
+    for (let char of arr) {
+      if (!isNaN(char) && char.trim() !== '') { // Kiểm tra nếu ký tự là số
+        count++;
+      }
+    }
+    return count;
+  }
+  let digitCount = countDigits(charArray);// Đếm số ký tự số trong mảng
+  console.log(`Số ký tự số trong mảng: ${digitCount}`);
+</script>
+</body>
+</html>

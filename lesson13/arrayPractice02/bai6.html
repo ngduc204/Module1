@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let charArray = prompt("Nhập vào một mảng ký tự, cách nhau bằng dấu phẩy:").split(',');
+    function replaceCharacters(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].trim() === '-') {
+                arr[i] = '_'; // Thay thế ký tự '-' bằng '_'
+            }
+        }
+        return arr;
+    }
+    let modifiedArray = replaceCharacters(charArray);
+    console.log(`Mảng sau khi thay thế: ${modifiedArray.join(', ')}`);
+</script>
+</body>
+</html>

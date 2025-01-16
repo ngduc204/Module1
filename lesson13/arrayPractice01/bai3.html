@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbers = [5, 12, 3, 8, 20, 15, 7, 10, 6, 18];
+    let maxElement = numbers[0];
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] > maxElement) {
+            maxElement = numbers[i];
+        }
+    }
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+    }
+    let average = sum / numbers.length;
+    console.log(`Mảng số nguyên: ${numbers}`);
+    console.log(`Giá trị lớn nhất trong mảng: ${maxElement}`);
+    console.log(`Giá trị trung bình của các phần tử trong mảng: ${average}`);
+</script>
+</body>
+</html>

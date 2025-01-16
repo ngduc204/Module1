@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function generateUniqueRandomArray(size, min, max) {
+        const uniqueNumbers = new Set();
+        while (uniqueNumbers.size < size) {
+            const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+            uniqueNumbers.add(randomNum);
+        }
+
+        return Array.from(uniqueNumbers);
+    }
+    let numbers = generateUniqueRandomArray(10, 0, 100);
+    let maxElement = numbers[0];
+    let maxIndex = 0;
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] > maxElement) {
+            maxElement = numbers[i];
+            maxIndex = i;
+        }
+    }
+    console.log(`Mảng số nguyên: ${numbers}`);
+    console.log(`Phần tử lớn nhất: ${maxElement} tại vị trí: ${maxIndex}`);
+</script>
+</body>
+</html>

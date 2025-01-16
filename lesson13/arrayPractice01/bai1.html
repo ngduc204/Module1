@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbers = [5, 12, 3, 10, 7, 15, 20, 8, 9, 11];
+    function countGreaterThanOrEqualToTen(arr) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] >= 10) {
+                count++;
+            }
+        }
+        return count;
+    }
+    let result = countGreaterThanOrEqualToTen(numbers);
+    console.log(`Số lượng số nguyên lớn hơn hoặc bằng 10: ${result}`);
+</script>
+</body>
+</html>

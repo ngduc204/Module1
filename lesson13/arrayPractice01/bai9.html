@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // Nhập vào mảng a gồm 10 phần tử
+  let a = [];
+  for (let i = 0; i < 10; i++) {
+    let input = prompt(`Nhập vào số nguyên thứ ${i + 1} cho mảng a:`);
+    a.push(parseInt(input, 10)); // Chuyển đổi thành số nguyên và thêm vào mảng
+  }
+  // Nhập vào mảng b gồm 10 phần tử
+  let b = [];
+  for (let i = 0; i < 10; i++) {
+    let input = prompt(`Nhập vào số nguyên thứ ${i + 1} cho mảng b:`);
+    b.push(parseInt(input, 10)); // Chuyển đổi thành số nguyên và thêm vào mảng
+  }
+  // Khai báo mảng c gồm 20 phần tử
+  let c = new Array(20);
+  // Nối các phần tử từ mảng b và a vào mảng c
+  for (let i = 0; i < 10; i++) {
+    c[i] = b[i]; // Các phần tử từ mảng b
+    c[i + 10] = a[i]; // Các phần tử từ mảng a
+  }
+  // Hiển thị mảng c
+  console.log(`Mảng c sau khi nối: ${c}`);
+</script>
+</body>
+</html>
