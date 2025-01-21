@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="showResult()">
+<p id="result"></p>
+<script>
+  function isDigit(character) {
+    return /^\d$/.test(character);
+  }
+
+  function showResult() {
+    const inputCharacter = prompt("Nhập một ký tự để kiểm tra:");
+    if (inputCharacter && inputCharacter.length === 1) {
+      const result = isDigit(inputCharacter);
+      document.getElementById("result").innerText =
+              "Ký tự '" + inputCharacter + "' " + (result ? "là" : "không phải là") + " ký tự số.";
+    } else {
+      document.getElementById("result").innerText = "Vui lòng nhập một ký tự hợp lệ.";
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="displayResult()">
+<p id="result"></p>
+
+<script>
+    function incrementValue(num) {
+        return num + 1;
+    }
+
+    function displayResult() {
+        const number = 5; // Giá trị số ban đầu
+        const result = incrementValue(number); // Gọi hàm để tăng giá trị
+        document.getElementById("result").innerText = "Giá trị sau khi tăng: " + result; // Hiển thị kết quả
+    }
+</script>
+</body>
+</html>

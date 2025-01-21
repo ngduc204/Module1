@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload = "showResult()">
+<p id = "result"></p>
+<script>
+    function calculateSquare(number) {
+        return number * number; // Tính bình phương
+    }
+
+    function showResult() {
+        const inputNumber = prompt("Nhập một số để tính bình phương:");
+        const number = parseFloat(inputNumber);
+        if (!isNaN(number)) {
+            const result = calculateSquare(number);
+            document.getElementById("result").innerText = "Bình phương của " + number + " là: " + result;
+        } else {
+            document.getElementById("result").innerText = "Vui lòng nhập một số hợp lệ.";
+        }
+    }
+</script>
+</body>
+</html>

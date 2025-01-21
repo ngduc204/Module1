@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function countCharacter(arr, char) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === char) {
+                count++;
+            }
+        }
+        return count > 0 ? count : -1;
+    }
+    let characters = ['a', 'b', 'c', 'a', 'd', 'a'];
+    let characterToCheck = 'a';
+    let result = countCharacter(characters, characterToCheck);
+    if (result !== -1) {
+        console.log(`Ký tự '${characterToCheck}' xuất hiện ${result} lần.`);
+    } else {
+        console.log(`Ký tự '${characterToCheck}' không có trong mảng.`);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload = "showResult()">
+<p id="result"></p>
+<script>
+  function calculateArea(radius) {
+    return Math.PI * radius * radius;
+  }
+
+  function calculateCircumference(radius) {
+    return 2 * Math.PI * radius;
+  }
+
+  function showResult() {
+    const inputRadius = prompt("Nhập bán kính hình tròn:");
+    const radius = parseFloat(inputRadius);
+    if (!isNaN(radius) && radius > 0) {
+      const area = calculateArea(radius);
+      const circumference = calculateCircumference(radius);
+      document.getElementById("result").innerText =
+              "Diện tích hình tròn là: " + area.toFixed(2) + "\n" +
+              "Chu vi hình tròn là: " + circumference.toFixed(2);
+    } else {
+      document.getElementById("result").innerText = "Vui lòng nhập bán kính hợp lệ.";
+    }
+  }
+</script>
+</body>
+</html>

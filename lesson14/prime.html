@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra số nguyên tố</title>
+</head>
+<body>
+<h1>Kiểm tra số nguyên tố</h1>
+<input type="number" id="num" placeholder="Nhập số nguyên"><button onclick="isPrime()">Submit</button>
+<p>Result: <span id="output"></span></p>
+
+<script>
+  function isPrime() {
+    let number = document.getElementById("num").value;
+    number = parseInt(number);
+    if (isNaN(number) || number <= 1) {
+      document.getElementById("output").innerHTML = number + " không phải là số nguyên tố.";
+      return;
+    }
+    let isPrime = true;
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+      if (number % i === 0) {
+        isPrime = false;
+        break;
+      }
+    }
+    if (isPrime) {
+      document.getElementById("output").innerHTML = number + " là số nguyên tố.";
+    } else {
+      document.getElementById("output").innerHTML = number + " không phải là số nguyên tố.";
+    }
+  }
+</script>
+</body>
+</html>

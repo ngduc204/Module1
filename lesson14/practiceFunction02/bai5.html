@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="min()">
+<script>
+  function min(a, b, c){
+    a = prompt("Nhập vào a")
+    b = prompt("Nhập vào b")
+    c = prompt("Nhập vào c")
+    if (a < b && a < c){
+      alert(`a (${a}) là số bé nhất`);
+    }else if (b > a && b < c){
+      alert(`b (${b}) là số bé nhất`);
+    }else if (c < a && c < b){
+      alert(`c (${c}) là số bé nhất`)
+    }
+  }
+</script>
+</body>
+</html>
