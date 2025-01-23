@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý sản phẩm</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Quản lý sản phẩm</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Số thứ tự</th>
+    <th>Tên sản phẩm</th>
+    <th>Hành động</th>
+  </tr>
+  </thead>
+  <tbody id="productList"></tbody>
+</table>
+
+<h2>Thêm sản phẩm</h2>
+<input type="text" id="newProductName" placeholder="Nhập tên sản phẩm">
+<button onclick="addProduct()">Thêm</button>
+
+<h2>Sửa sản phẩm</h2>
+<input type="text" id="editProductName" placeholder="Nhập tên sản phẩm để sửa">
+<button onclick="editProduct()">Sửa</button>
+
+<script>
+  let products = [];
+  let editIndex = -1;
+
+  function displayProducts() {
+    const productList = document.getElementById('productList');
+    productList.innerHTML = '';
+    products.forEach((product, index) => {
+      productList.innerHTML += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td onclick="setEdit(${index})">${product}</td>
+                    <td><button onclick="deleteProduct(${index})">Xoá</button></td>
+                </tr>
+            `;
+    });
+  }
+
+  function addProduct() {
+    const productName = document.getElementById('newProductName').value;
+    if (productName) {
+      products.push(productName);
+      document.getElementById('newProductName').value = '';
+      displayProducts();
+      alert("Thêm sản phẩm thành công!");
+    }
+  }
+
+  function setEdit(index) {
+    editIndex = index;
+    document.getElementById('editProductName').value = products[index];
+  }
+
+  function editProduct() {
+    if (editIndex > -1) {
+      const newName = document.getElementById('editProductName').value;
+      if (newName) {
+        products[editIndex] = newName;
+        editIndex = -1;
+        document.getElementById('editProductName').value = '';
+        displayProducts();
+        alert("Sửa sản phẩm thành công!");
+      }
+    }
+  }
+
+  function deleteProduct(index) {
+    products.splice(index, 1);
+    displayProducts();
+    alert("Xoá sản phẩm thành công!");
+  }
+
+  // Hiển thị danh sách sản phẩm khi tải trang
+  displayProducts();
+</script>
+
+</body>
+</html>
