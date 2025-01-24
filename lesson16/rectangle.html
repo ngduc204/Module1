@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var Rectangle = function (length, width) {
+        this.length = length;
+        this.width = width;
+        this.getLength = function () {
+            return this.length;
+        }
+        this.getWidth = function () {
+            return this.width;
+        }
+        this.setLength = function (length) {
+            this.length = length;
+        }
+        this.setWidth = function (width) {
+            this.width = width;
+        }
+        this.getArea = function () {
+            return this.length * this.width;
+        }
+        this.getPerimeter = function () {
+            return (this.length + this.width) * 2;
+        }
+    }
+    var rectangle = new Rectangle(6, 4);
+
+    rectangle.setLength(100);
+    rectangle.setWidth(100);
+
+    var length = rectangle.getLength();
+    var width = rectangle.getWidth();
+    var area = rectangle.getArea();
+    var perimeter = rectangle.getPerimeter();
+    alert("Chiều dài: " + length + "; Chiều rộng: " + width);
+    alert("Diện tích hình chữ nhật: " + area + "; Chu vi hình chữ nhật: " + perimeter);
+</script>
+</body>
+</html>

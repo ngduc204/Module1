@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(celsius) {
+            if (celsius < -273.15) {
+                console.error("Temperature cannot be below -273.15°C");
+                return; // Dừng lại nếu giá trị không hợp lệ
+            }
+            this.celsius = celsius;
+        }
+
+        toFahrenheit() {
+            return (this.celsius * 9 / 5) + 32;
+        }
+
+        toKelvin() {
+            return this.celsius + 273.15;
+        }
+    }
+
+    const temp = new Temperature(25);
+
+    if (temp.celsius !== undefined) {
+        // Hiển thị nhiệt độ tương ứng tính theo đơn vị Fahrenheit và Kelvin
+        document.write(`Nhiệt độ: ${temp.celsius}°C` + `<br>`);
+        document.write(`Nhiệt độ tương ứng: ${temp.toFahrenheit()}°F` + `<br>`);
+        document.write(`Nhiệt độ tương ứng: ${temp.toKelvin()} K` + `<br>`);
+    } else {
+        console.log("Không thể khởi tạo đối tượng Temperature với giá trị không hợp lệ.");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class Mobile{
+    constructor(brand){
+      this.brand = brand;
+      this.batteryStatus = 100;
+      this.isOn = false; //trạng thái điện thoại bật tắt
+      this.draftingMessage = ""; //tin nhắn đang soạn thảo
+      this.inbox = []; //hộp thư đến
+      this.sentMessages = []; //tin nhắn đã gửi
+    }
+
+    checkStatus(){
+      if (this.isOn === true){
+        document.write(`${this.brand} đã bật.`);
+      } else {
+        document.write(`${this.brand} đã tắt.`);
+      }
+    }
+
+    charge() {
+      this.batteryStatus = 100;
+      document.write(`${this.brand} pin đã được sạc đầy`);
+    }
+
+    drafMesage(message){
+        if (!this.isOn){
+            document.write("Điện thoại đang tắt! Không thể soạn tin nhắn");
+            return;
+        }
+        this.draftingMessage = message;
+        this.batteryStatus -= 1;
+        document.write(`Đã soạn tin nhắn: "${message}".`);
+    }
+
+    sendMassage(receiver){
+        if (!this.isOn){
+            document.write("Điện thoại đang tắt không thể gửi tin nhắn.");
+            return;
+        }
+        if (this.draftingMessage === ""){
+            document.write("Không có tin nhắn nào để gửi");
+            return;
+        }
+        receiver.receiveMessage(this.draftingMessage);
+        this.sendMassage.push(this.draftingMessage);
+        this.batteryStatus -= 1;
+        this.draftingMessage = "";
+        document.write(`Đã gửi tin nhắn: "${this.sentMessages[this.sentMessages.length-1]}" tới ${receiver.brand}.`);
+    }
+  }
+</script>
+</body>
+</html>
