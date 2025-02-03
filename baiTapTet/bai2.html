@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function checkTriangle(x, y, z) {
+    if (x + y <= z || x + z <= y || y + z <= x) {
+      console.log("Không phải cạnh của tam giác");
+      return;
+    }
+
+    const sides = [x, y, z].sort((a, b) => a - b);
+    const [a, b, c] = sides;
+
+    if (a * a + b * b === c * c) {
+      console.log("Là 3 cạnh của tam giác vuông");
+    } else {
+      console.log("Chỉ là 3 cạnh của tam giác");
+    }
+  }
+
+  checkTriangle(3, 4, 5);
+  checkTriangle(2, 2, 3);
+  checkTriangle(1, 2, 3);
+</script>
+</body>
+</html>

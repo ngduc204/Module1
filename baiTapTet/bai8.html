@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function isPrime(num) {
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  }
+
+  function areAllPrimes(arr) {
+    if (!Array.isArray(arr) || arr.length === 0) {
+      return false;
+    }
+
+    for (let num of arr) {
+      if (!Number.isInteger(num) || !isPrime(num)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  console.log(areAllPrimes([11, 3, 2, 7]));
+  console.log(areAllPrimes([1, 3, 4, 2, 6]));
+</script>
+</body>
+</html>

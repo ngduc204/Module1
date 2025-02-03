@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function checkArray(arr) {
+    if (!Array.isArray(arr) || arr.length === 0) {
+      return -1;
+    }
+
+    for (let num of arr) {
+      if (!Number.isInteger(num)) {
+        return -1;
+      }
+    }
+
+    if (arr.length % 2 === 0) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  console.log(checkArray([0, 2, 8, 12, 4]));
+  console.log(checkArray([1, 7, 3, 1]));
+  console.log(checkArray([1, 2, 9, 4]));
+</script>
+</body>
+</html>

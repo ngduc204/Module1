@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function findMaxNumber(n) {
+    if (!Number.isInteger(n) || n < 1000 || n > 9999) {
+      return -1;
+    }
+
+    const strN = n.toString();
+    let maxNumber = -1;
+
+    for (let i = 0; i < strN.length; i++) {
+      const newNumber = strN.slice(0, i) + strN.slice(i + 1); // Xóa chữ số tại vị trí i
+      maxNumber = Math.max(maxNumber, parseInt(newNumber, 10)); // Cập nhật số lớn nhất
+    }
+
+    return maxNumber;
+  }
+
+  console.log(findMaxNumber(923));
+  console.log(findMaxNumber(1923));
+  console.log(findMaxNumber(9371));
+</script>
+</body>
+</html>

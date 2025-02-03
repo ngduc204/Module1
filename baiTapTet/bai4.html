@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function gcd(a, b) {
+    while (b) {
+      [a, b] = [b, a % b];
+    }
+    return a;
+  }
+
+  function find(x) {
+    const regex = /^(-?\d+)\/(-?\d+)$/;
+    const match = x.match(regex);
+
+    if (!match) {
+      console.log("Không phải là phân số");
+      return;
+    }
+
+    let numerator = parseInt(match[1], 10);
+    let denominator = parseInt(match[2], 10);
+
+    const divisor = gcd(Math.abs(numerator), Math.abs(denominator));
+    numerator /= divisor;
+    denominator /= divisor;
+
+    if (denominator < 0) {
+      numerator = -numerator;
+      denominator = -denominator;
+    }
+
+    console.log(`Phân số tối giản: ${numerator}/${denominator}`);
+  }
+
+  find("123/");
+  find("12/a11");
+  find("1/0");
+  find("0/1");
+</script>
+</body>
+</html>

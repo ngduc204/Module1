@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function isSymmetric(arr) {
+    const n = arr.length;
+
+    for (let i = 0; i < Math.floor(n / 2); i++) {
+      if (arr[i] !== arr[n - 1 - i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function inputArray() {
+    const length = parseInt(prompt("Nhập độ dài của mảng: "), 10);
+    const arr = [];
+
+    for (let i = 0; i < length; i++) {
+      const element = prompt(`Nhập phần tử thứ ${i + 1}:`);
+      arr.push(element);
+    }
+
+    console.log("Mảng vừa nhập:", arr);
+
+    if (isSymmetric(arr)) {
+      console.log("OK");
+    } else {
+      console.log("NO");
+    }
+  }
+
+  inputArray();
+</script>
+</body>
+</html>

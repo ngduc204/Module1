@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function checkString(str) {
+    const vowels = 'aeiou';
+    const resultSet = new Set();
+
+    for (const char of str.toLowerCase()) {
+      if (vowels.includes(char)) {
+        resultSet.add(char);
+      }
+    }
+
+    return Array.from(resultSet);
+  }
+
+  const inputString = "Nguyen Minh Duc!";
+  const vowelsArray = checkString(inputString);
+  console.log(vowelsArray);
+</script>
+</body>
+</html>

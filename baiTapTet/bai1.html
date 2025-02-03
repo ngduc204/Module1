@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập độ dài mảng không quá 20:"), 10);
+    while (isNaN(n) || n < 1 || n > 20) {
+        n = parseInt(prompt("Độ dài không hợp lệ! Nhập lại:"), 10);
+    }
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        let value = parseInt(prompt(`Nhập phần tử thứ ${i + 1}:`), 10);
+        arr.push(value);
+    }
+    console.log(`Mảng đã nhập: ${arr.join(', ')}`);
+    let isIncreasing = true;
+    const difference = arr[1] - arr[0];
+
+    for (let i = 1; i < arr.length - 1; i++) {
+        if (arr[i + 1] - arr[i] !== difference) {
+            isIncreasing = false;
+            break;
+        }
+    }
+    if (isIncreasing) {
+        console.log("OK");
+    } else {
+        console.log("NO");
+    }
+</script>
+</body>
+</html>

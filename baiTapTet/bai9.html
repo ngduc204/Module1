@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm Tra Mảng</title>
+</head>
+<body>
+<h1>Nhập Mảng</h1>
+<input type="number" id="n" placeholder="Độ dài mảng (số chẵn)">
+<button onclick="inputArray()">Nhập Mảng</button>
+<div id="result"></div>
+
+<script>
+  function inputArray() {
+    const n = parseInt(document.getElementById('n').value);
+    if (n % 2 !== 0 || n <= 0) {
+      alert("Vui lòng nhập số chẵn lớn hơn 0.");
+      return;
+    }
+
+    const arr = [];
+    for (let i = 0; i < n; i++) {
+      const value = parseInt(prompt(`Nhập phần tử thứ ${i + 1}:`));
+      arr.push(value);
+    }
+
+    document.getElementById('result').innerHTML = `Mảng đã nhập: [${arr.join(', ')}]`;
+
+    let isOK = true;
+    for (let i = 0; i < arr.length - 1; i += 2) {
+      if (arr[i] >= arr[i + 1]) {
+        isOK = false;
+        break;
+      }
+    }
+
+    if (isOK) {
+      alert("OK");
+    } else {
+      alert("NO");
+    }
+  }
+</script>
+</body>
+</html>

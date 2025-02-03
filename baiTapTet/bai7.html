@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function checkCharacter(character) {
+    if (typeof character !== 'string' || character.length !== 1) {
+      return -1;
+    }
+
+    if (/\d/.test(character)) {
+    }
+
+    if (/[a-zA-Z]/.test(character)) {
+      return 0;
+    }
+
+    return -1;
+  }
+
+  console.log(checkCharacter('5,2,8,1,4'));
+</script>
+</body>
+</html>
