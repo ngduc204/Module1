@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instagram</title>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Instagram</h1>
+<table id="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Full name</th>
+        <th>User name</th>
+        <th>Followers</th>
+        <th>Following</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    <!--    <tr>-->
+    <!--        <td>1</td>-->
+    <!--        <td>Nguyễn Đức</td>-->
+    <!--        <td><a href="https://www.instagram.com/ngduc.04/">ngduc.04</a></td>-->
+    <!--        <td>896</td>-->
+    <!--        <td>217</td>-->
+    <!--        <td>-->
+    <!--            <button class="edit">Edit</button>-->
+    <!--            <button class="delete">Delete</button>-->
+    <!--        </td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>2</td>-->
+    <!--        <td>Cao Tung Lam</td>-->
+    <!--        <td><a href="http://instagram.com/__lamcao/">__lamcao</a></td>-->
+    <!--        <td>591</td>-->
+    <!--        <td>547</td>-->
+    <!--        <td>-->
+    <!--            <button class="edit">Edit</button>-->
+    <!--            <button class="delete">Delete</button>-->
+    <!--        </td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>3</td>-->
+    <!--        <td>Hoàng Phương</td>-->
+    <!--        <td><a href="https://www.instagram.com/hanja.danba/">hanja.danba</a></td>-->
+    <!--        <td>22</td>-->
+    <!--        <td>24</td>-->
+    <!--        <td>-->
+    <!--            <button class="edit">Edit</button>-->
+    <!--            <button class="delete">Delete</button>-->
+    <!--        </td>-->
+    <!--    </tr>-->
+    </tbody>
+</table>
+<h2>Add user</h2>
+<input type="hidden" id="userID">
+<input type="text" id="fullName" placeholder="Full name">
+<input type="text" id="userName" placeholder="User name">
+<input type="text" id="follower" placeholder="Followers">
+<input type="text" id="following" placeholder="Following">
+<button id="confirm">Confirm</button>
+<script>
+    class Instagram {
+        constructor(id, fullName, userName, follower, following, url) {
+            this.id = id;
+            this.fullName = fullName;
+            this.userName = userName;
+            this.follower = follower;
+            this.following = following;
+            this.url = `https://www.instagram.com/` + userName + `/`;
+        }
+    }
+
+    class UserManager {
+        constructor() {
+            this.users = [
+                new Instagram(1, "Nguyễn Đức", "ngduc.04", 895, 218),
+                new Instagram(2, "Đỗ Thu Hương", "gnouhh_uht", 334, 61),
+                new Instagram(3, "Cao Tung Lam", "__lamcao", 591, 547),
+                new Instagram(4, "Hoàng Phương", "hanja.danba", 22, 24)
+            ];
+            this.idCounter = 5;
+        }
+
+
+        //TODO: Tạo hàm hiển thị
+        render() {
+            var tbody = document.getElementById("tbody");
+            tbody.innerHTML = "";
+            for (let i = 0; i < this.users.length; i++) {
+                this.createUserRow(this.users[i]);
+            }
+        }
+
+        createUserRow(user) {
+            var tr = document.createElement(`tr`);
+            tr.innerHTML = `
+            <td>${user.id}</td>
+            <td>${user.fullName}</td>
+            <td><a href=""></a>${user.url}</td>
+            <td>${user.follower}</td>
+            <td>${user.following}</td>
+            <td>${this.createActionButton(user.id)}</td>`;
+            var tbody = document.getElementById("tbody");
+            tbody.appendChild(tr);
+        }
+
+        createActionButton(userID) {
+            return `<button class="update" onclick="userManager.updateUser(${userID})">Update</button>
+                    <button class="delete" onclick="userManager.deleteUser(${userID})">Delete</button>`;
+        }
+
+        //TODO: Thêm người dùng
+        addUser(fullName, userName, follower, following) {
+            var newUser = new User(this.idCounter++, fullName, userName, follower, following);
+            this.users.push(newUser);
+            this.render();
+        }
+
+        //TODO: Sửa danh sách người dùng
+        updateUser(id){
+            var user = this.findUserByID(id);
+            if (user){
+                document.getElementById("userID").value = user.id;
+                document.getElementById("fullName").value = user.fullName;
+                document.getElementById("userName").value = user.userName;
+                document.getElementById("follower").value = user.follower;
+                document.getElementById("following").value = user.following;
+            }
+        }
+
+        findUserByID(id){
+            for (let i = 0; i < this.users.length; i++) {
+                if (this.users[i].id === id){
+                    return this.users[i];
+                }
+            }
+            return null;
+        }
+    }
+
+    var userManager = new UserManager();
+    userManager.render();
+    document.getElementById("confirm")
+
+</script>
+</body>
+</html>

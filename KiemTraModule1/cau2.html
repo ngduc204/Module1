@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function isPerfectNumber(num) {
+    if (num <= 0) {
+      return false;
+    }
+    let sum = 0;
+    for (let i = 1; i <= num / 2; i++) {
+      if (num % i === 0) {
+        sum += i;
+      }
+    }
+    return sum === num;
+  }
+
+  const userInput = prompt("Nhập một số nguyên dương:");
+  const number = parseInt(userInput, 10);
+  if (number > 0) {
+    const result = isPerfectNumber(number);
+    if (result) {
+      console.log("Số " + number + " là số hoàn hảo.");
+    } else {
+      console.log("Số " + number + " không phải là số hoàn hảo.");
+    }
+  } else {
+    console.log("Vui lòng nhập một số nguyên dương hợp lệ.");
+  }
+</script>
+</body>
+</html>

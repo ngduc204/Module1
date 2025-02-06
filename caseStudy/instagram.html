@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    html{
+        background: linear-gradient(#c471f5, #fa71cd);
+        height: 100%;
+        width: 100%;
+    }
+    body {
+        width: 100%;
+        height: 100%;
+        /*background: linear-gradient(#16d9e3, #30c7ec, #46aef7);*/
+    }
+
+    table {
+        width: 80%;
+        margin: auto;
+        background-color: white;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+
+    #image {
+        /*background-image: url("https://www.adobe.com/express/learn/blog/media_181ecfbc6bad648dabb38acaa11dd8571cc05c1bb.png?width=1200&format=pjpg&optimize=medium");*/
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ccc;
+        /*background: linear-gradient(#00dbde, #fc00ff);*/
+    }
+
+    #th {
+        background: linear-gradient(#4facfe, #00f2fe);
+    }
+
+    #between {
+        /*background-image: url("https://www.adobe.com/express/learn/blog/media_181ecfbc6bad648dabb38acaa11dd8571cc05c1bb.png?width=1200&format=pjpg&optimize=medium");*/
+        width: 100%;
+        height: 75%;
+    }
+
+    #footer {
+        background-color: plum;
+        text-align: center;
+        width: 100%;
+        height: 10%;
+    }
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Instagram</title>
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1024px-Instagram_logo_2022.svg.png">
+</head>
+<body>
+<div id="image">
+    <img style="height: 80px" src="https://freepnglogo.com/images/all_img/1715966503instagram-logo-with-text-png.png">
+</div>
+<div id="between">
+    <div style="text-align: center">
+        <h3>Add user
+            <input type="hidden" id="userID">
+            <input type="text" id="fullName" placeholder="Full name">
+            <input type="text" id="userName" placeholder="User name">
+            <input type="text" id="follower" placeholder="Followers">
+            <input type="text" id="following" placeholder="Following">
+            <button id="confirm">Confirm</button>
+        </h3>
+<!--        <input type="text" id="searchInput" placeholder="Search users..." />-->
+    </div>
+    <table id="table">
+        <thead>
+        <tr id="th">
+            <th>ID</th>
+            <th>Full name</th>
+            <th>User name</th>
+            <th>Followers</th>
+            <th>Following</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+</div>
+<!-- Copyright -->
+<div id="footer">
+    <hr class="mb-4">
+    <div class="text-center">
+        <p class="mb-0">&copy; 2025 CaseStudy by Nguyễn Đức.</p>
+    </div>
+</div>
+</body>
+<script src="instagram.js"></script>
+</html>

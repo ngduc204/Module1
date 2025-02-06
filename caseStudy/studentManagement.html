@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sinh Viên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Bảng Quản Lý Sinh Viên</h2>
+
+<table id="studentTable">
+    <thead>
+    <tr>
+        <th>Họ và tên</th>
+        <th>Ngày sinh</th>
+        <th>Quê quán</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Nguyễn Minh Đức</td>
+        <td>30/11/2004</td>
+        <td>Hải Dương</td>
+        <td>
+            <button class="edit-btn">Sửa</button>
+            <button class="delete-btn">Xóa</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Hoàng Mạnh Cường</td>
+        <td>1/1/2005</td>
+        <td>Hà Nội</td>
+        <td>
+            <button class="edit-btn">Sửa</button>
+            <button class="delete-btn">Xóa</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Lê Sơn Nhất</td>
+        <td>1/1/1999</td>
+        <td>Hải Dương</td>
+        <td>
+            <button class="edit-btn">Sửa</button>
+            <button class="delete-btn">Xóa</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Nguyễn Hà Minh Quân</td>
+        <td>1/1/1996</td>
+        <td>Phú Thọ</td>
+        <td>
+            <button class="edit-btn">Sửa</button>
+            <button class="delete-btn">Xóa</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Đạt Lê</td>
+        <td>1/1/2001</td>
+        <td>Hà Nội</td>
+        <td>
+            <button class="edit-btn">Sửa</button>
+            <button class="delete-btn">Xóa</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Huy</td>
+        <td>1/1/2002</td>
+        <td>Nam Định</td>
+        <td>
+            <button class="edit-btn">Sửa</button>
+            <button class="delete-btn">Xóa</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Thêm Sinh Viên</h3>
+<input type="text" id="name" placeholder="Họ và tên">
+<input type="text" id="dob" placeholder="Ngày sinh (dd/mm/yyyy)">
+<input type="text" id="hometown" placeholder="Quê quán">
+<button class="btn" id="addBtn">Thêm</button>
+
+<script>
+    const studentTable = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+    const addBtn = document.getElementById('addBtn');
+
+    addBtn.addEventListener('click', function () {
+        const name = document.getElementById('name').value;
+        const dob = document.getElementById('dob').value;
+        const hometown = document.getElementById('hometown').value;
+
+        if (name && dob && hometown) {
+            const newRow = studentTable.insertRow();
+            newRow.innerHTML = `
+                    <td>${name}</td>
+                    <td>${dob}</td>
+                    <td>${hometown}</td>
+                    <td>
+                        <button class="edit-btn">Sửa</button>
+                        <button class="delete-btn">Xóa</button>
+                    </td>
+                `;
+            addEventListeners(newRow);
+            document.getElementById('name').value = '';
+            document.getElementById('dob').value = '';
+            document.getElementById('hometown').value = '';
+        } else {
+            alert('Vui lòng điền đầy đủ thông tin!');
+        }
+    });
+
+    function addEventListeners(row) {
+        row.querySelector('.edit-btn').addEventListener('click', function () {
+            const cells = row.getElementsByTagName('td');
+            const name = prompt('Sửa họ và tên:', cells[0].innerText);
+            const dob = prompt('Sửa ngày sinh:', cells[1].innerText);
+            const hometown = prompt('Sửa quê quán:', cells[2].innerText);
+
+            if (name) cells[0].innerText = name;
+            if (dob) cells[1].innerText = dob;
+            if (hometown) cells[2].innerText = hometown;
+        });
+
+        row.querySelector('.delete-btn').addEventListener('click', function () {
+            studentTable.deleteRow(row.rowIndex - 1);
+        });
+    }
+
+    Array.from(document.getElementsByClassName('edit-btn')).forEach((btn, index) => {
+        btn.addEventListener('click', function () {
+            const row = btn.parentNode.parentNode;
+            const cells = row.getElementsByTagName('td');
+            const name = prompt('Sửa họ và tên:', cells[0].innerText);
+            const dob = prompt('Sửa ngày sinh:', cells[1].innerText);
+            const hometown = prompt('Sửa quê quán:', cells[2].innerText);
+
+            if (name) cells[0].innerText = name;
+            if (dob) cells[1].innerText = dob;
+            if (hometown) cells[2].innerText = hometown;
+        });
+    });
+
+    Array.from(document.getElementsByClassName('delete-btn')).forEach((btn) => {
+        btn.addEventListener('click', function () {
+            const row = btn.parentNode.parentNode;
+            studentTable.deleteRow(row.rowIndex - 1);
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trung Bình Cộng</title>
+</head>
+<body>
+<h1>Tính Trung Bình Cộng Các Số Chia Hết Cho 3</h1>
+<button onclick="inputArray()">Nhập Mảng</button>
+
+<script>
+  function inputArray() {
+    const arrLength = parseInt(prompt("Nhập số lượng phần tử (tối đa 50):"));
+
+    if (arrLength < 1 || arrLength > 50) {
+      alert("Số lượng phần tử không hợp lệ! Vui lòng nhập từ 1 đến 50.");
+      return;
+    }
+
+    let sum = 0;
+    let count = 0;
+    const elements = [];
+
+    for (let i = 0; i < arrLength; i++) {
+      const elem = parseInt(prompt(`Nhập phần tử ${i + 1}:`));
+      elements.push(elem);
+
+      if (elem % 3 === 0) {
+        sum += elem;
+        count++;
+      }
+    }
+
+    console.log(`Mảng có ${arrLength} phần tử: ${elements.join(', ')}`);
+    if (count > 0) {
+      const average = sum / count;
+      console.log(`Trung bình cộng các số chia hết cho 3 là: ${average}`);
+    } else {
+      console.log('Không có số nào chia hết cho 3.');
+    }
+  }
+</script>
+</body>
+</html>
